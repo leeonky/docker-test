@@ -1,14 +1,13 @@
-#FROM daocloud.io/leeonky/centos-7:1.0
-FROM daocloud.io/leeonky/os-centos7:72.7.1
+FROM daocloud.io/leeonky/centos-7:master-83d8552
 
 ###### tools for install ruby-install and build ruby
 RUN sudo yum install -y \
+	bzip2 \
 	gcc \
 	make \
-	bzip2
 
 WORKDIR $USER_HOME
-RUN wget -O ruby-install-0.6.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
+RUN curl -o ruby-install-0.6.0.tar.gz -L https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
 RUN tar -zxf ruby-install-0.6.0.tar.gz && \
 	cd ruby-install-0.6.0/ && \
 	sudo make install
