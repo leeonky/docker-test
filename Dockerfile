@@ -1,4 +1,4 @@
-FROM daocloud.io/leeonky/test:master-8af6fdd
+FROM daocloud.io/leeonky/ruby-installer:master-f10a7e9
 
 RUN install-ruby 2.3.1
 
