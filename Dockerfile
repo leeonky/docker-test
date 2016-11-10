@@ -1,4 +1,4 @@
-FROM daocloud.io/leeonky/centos-7:1.0
+FROM daocloud.io/leeonky/centos-7:master-83d8552
 
 ###### tools for install ruby-install and build ruby
 RUN sudo yum install -y \
