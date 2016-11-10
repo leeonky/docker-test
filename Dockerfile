@@ -1,7 +1,7 @@
 FROM daocloud.io/leeonky/ruby-installer:master-6af48db
 
 ###### tools for install ruby-install
-RUN sudo yum -y \
+RUN sudo yum install -y \
 	bzip2
 
 ############
