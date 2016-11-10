@@ -1,4 +1,4 @@
-FROM daocloud.io/leeonky/centos-7:master-83d8552
+FROM daocloud.io/leeonky/centos-7:master-2e4504b
 
 ###### tools for install ruby-install and build ruby
 RUN sudo yum install -y \
@@ -12,7 +12,7 @@ RUN tar -zxf ruby-install-0.6.0.tar.gz && \
 	cd ruby-install-0.6.0/ && \
 	sudo make install
 
-#ADD install-ruby $USER_HOME/bin/
-#RUN chown $USER:$USER $USER_HOME/bin/install-ruby && \
-#	chmod +x $USER_HOME/bin/install-ruby
+ADD install-ruby $USER_HOME/bin/
+RUN chown $USER:$USER $USER_HOME/bin/install-ruby && \
+	chmod +x $USER_HOME/bin/install-ruby
 

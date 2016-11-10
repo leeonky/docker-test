@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ruby_version=$1
+ruby-install ruby ${ruby_version} && \
+rm ~/src -rf && \
+echo "PATH=\$PATH:${HOME}/.rubies/ruby-${ruby_version}/bin" > "${HOME}/.bashrc.d/ruby-${ruby_version}.sh"
