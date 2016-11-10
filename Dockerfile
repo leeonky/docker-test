@@ -1,5 +1,8 @@
 FROM daocloud.io/leeonky/centos-7:1.0
 
+ENV USER gauss
+ENV USER_HOME /home/gauss
+
 ###### tools for install ruby-install and build ruby
 RUN sudo yum -y install \
 	gcc \
