@@ -14,6 +14,7 @@ RUN yum install -y qtwebkit-devel && \
 RUN yum install -y glibc.i686
 RUN rpm -ivh http://www.cabextract.org.uk/cabextract-1.6-1.i386.rpm
 RUN rpm -ivh https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+RUN yum install -y firefox
 
 
 USER $USER_NAME
