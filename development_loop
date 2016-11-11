@@ -3,4 +3,8 @@
 mkdir -p ~/nfs
 sudo mount -o nolock -t nfs $WORK_ADDR ~/nfs
 
-read -p 'Press any key to exit'
+while [ 1 ]
+do
+	sleep 1
+done
+
