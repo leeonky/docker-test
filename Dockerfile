@@ -1,4 +1,28 @@
-FROM daocloud.io/leeonky/ruby-installer:master-2d295e0
+###################centos-7##########################
+
+FROM daocloud.io/centos:7.2.1511
+
+###### EPEL repository
+RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+###### install basic tools
+RUN yum install -y sudo
+
+###### add user gauss
+ENV USER_NAME gauss
+ENV USER_HOME /home/$USER_NAME
+RUN useradd $USER_NAME -m && \
+	( echo 'gauss    ALL=(ALL)       NOPASSWD:ALL' > /etc/sudoers.d/$USER_NAME ) && \
+	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers
+
+ADD lang.sh /etc/profile.d/
+USER $USER_NAME
+
+###### enable .bashrc.d
+RUN echo 'for f in $(ls ~/.bashrc.d/); do source ~/.bashrc.d/$f; done' >> $USER_HOME/.bashrc && \
+	mkdir -p $USER_HOME/.bashrc.d
+
+##################ruby installer####################
 
 USER root
 
@@ -12,4 +36,17 @@ ADD development_loop /usr/local/bin/
 RUN sudo chmod +x /usr/local/bin/development_loop
 
 USER $USER_NAME
+
+######################ruby ###########################
+USER root
+RUN install-ruby 2.3.1
+
+USER $USER_NAME
+
+######################rails ###########################
+USER root
+RUN gem install rails -v 4.2.5
+
+USER $USER_NAME
+CMD bash
 
