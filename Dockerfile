@@ -26,6 +26,18 @@ RUN echo 'for f in $(ls ~/.bashrc.d/); do source ~/.bashrc.d/$f; done' >> $USER_
 
 USER root
 
+###### install tools for build ruby-install and ruby
+RUN yum install -y \
+	bzip2 \
+	gcc \
+	make
+
+######  install ruby-install
+RUN curl -o ruby-install-0.6.0.tar.gz -L https://github.com/postmodern/ruby-install/archive/v0.6.0.tar.gz
+RUN tar -zxf ruby-install-0.6.0.tar.gz && \
+	cd ruby-install-0.6.0/ && \
+	sudo make install
+
 ADD install-ruby /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-ruby
 
