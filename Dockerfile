@@ -60,6 +60,8 @@ USER $USER_NAME
 USER root
 RUN gem install rails -v 4.2.5
 
+RUN yum install -y git
+
 USER $USER_NAME
 CMD bash
 
