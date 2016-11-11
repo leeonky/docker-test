@@ -12,7 +12,8 @@ RUN yum install -y sudo \
 ###### add user gauss
 ENV USER_NAME gauss
 ENV USER_HOME /home/$USER_NAME
-RUN useradd $USER_NAME -m && \
+RUN ( printf 'root\nroot\n' | passwd ) && \
+	useradd $USER_NAME -m && \
 	( echo 'gauss    ALL=(ALL)       NOPASSWD:ALL' > /etc/sudoers.d/$USER_NAME ) && \
 	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers
 
@@ -63,8 +64,13 @@ RUN gem install rails -v 4.2.5
 
 #######################################
 
+RUN yum install -y which
 RUN yum install -y git
 RUN yum install -y gcc-c++
+RUN yum install -y postgresql-devel
+RUN yum install -y sqlite-devel.x86_64
+RUN yum install -y ImageMagick-devel
+RUN yum install -y qtwebkit-devel
 
 USER $USER_NAME
 CMD bash
