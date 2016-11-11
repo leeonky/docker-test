@@ -1,5 +1,7 @@
 FROM daocloud.io/leeonky/test:master-32fbbf7
 
+USER root
+
 RUN yum install -y which
 RUN yum install -y git
 RUN yum install -y gcc-c++
