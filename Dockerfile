@@ -2,6 +2,9 @@ FROM daocloud.io/leeonky/ruby-installer:master-2d295e0
 
 USER $USER_NAME
 
+ADD install-ruby /usr/local/bin/
+RUN sudo chmod +x /usr/local/bin/install-ruby
+
 RUN install-ruby 2.3.1
 RUN gem install rails -v 4.2.5
 

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ruby_version=$1
+sudo ruby-install --system ruby ${ruby_version}
