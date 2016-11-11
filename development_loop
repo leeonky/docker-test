@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mkdir -p ~/nfs
+sudo mount -o nolock -t nfs $WORK_ADDR ~/nfs
+
+read -p 'Press any key to exit'
