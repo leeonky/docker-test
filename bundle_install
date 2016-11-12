@@ -3,4 +3,4 @@
 working_dir=$1
 
 cd ${working_dir} && bundle install && cd -
-rm -rf ${working_dir}
+sudo rm -rf ${working_dir}
