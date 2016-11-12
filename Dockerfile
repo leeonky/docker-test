@@ -1,10 +1,14 @@
-FROM daocloud.io/leeonky/ruby-installer:master-f67c2a7
+FROM daocloud.io/leeonky/rails-2.3.1-4.2.5:1.1.0	
 
 USER root
 
-RUN install-ruby 2.3.1
-RUN gem install rails -v 4.2.5
+ADD bundle_install /usr/local/bin/
+RUN chmod +x /usr/local/bin/bundle_install
+
+ADD gemfile /tmp/
 
 USER $USER_NAME
+RUN bundle_install /tmp/gemfile
+
 CMD bash
 
