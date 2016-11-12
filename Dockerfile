@@ -5,10 +5,11 @@ USER root
 ADD bundle_install /usr/local/bin/
 RUN chmod +x /usr/local/bin/bundle_install
 
-ADD gemfile /tmp/
+ENV GEMFILE_PATH gemfile
+ADD $GEMFILE_PATH /tmp/$GEMFILE_PATH
 
 USER $USER_NAME
-RUN bundle_install /tmp/gemfile
+RUN bundle_install /tmp/$GEMFILE_PATH
 
 CMD bash
 

@@ -1,5 +1,0 @@
-#!/bin/sh
-
-ruby_version=$1
-ruby-install --system ruby ${ruby_version}
-rm -rf /usr/local/src/ruby-${ruby_version} /usr/local/src/ruby-${ruby_version}.tar.bz2
