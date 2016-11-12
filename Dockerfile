@@ -1,4 +1,4 @@
-FROM daocloud.io/leeonky/ruby-installer:master-55f9c33
+FROM daocloud.io/leeonky/ruby-installer:master-f67c2a7
 
 USER root
 
