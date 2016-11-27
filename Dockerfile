@@ -12,3 +12,5 @@ RUN yum -y install \
 
 ###### install basic development tools
 RUN yum -y groupinstall 'Development Tools'
+
+RUN wget https://www.kernel.org/pub/software/scm/git/git-2.0.5.tar.gz
